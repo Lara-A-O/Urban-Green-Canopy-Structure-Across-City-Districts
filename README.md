@@ -2,7 +2,9 @@
 Final Assignement for the course Novel Image Analysis Methods/ LIDAR Remote sensing of the M.Sc. Applied Earth Observation and Geoanalysis(Matr.3248301)
 
 ## Introduction 
+Urban Green Spaces are key elements of sustainable urban development. Urban green spaces offer benefits in various areas, e.g. ecological benefits in the form of cooling and air purification, health-related benefits such as improved mental health, and economic benefits, for example through higher property values; at the same time, they often serve as meeting places (Zhang/Quian 2024). Urban Green Spaces are also especially important in terms of adapting to the effects of climate change because of the potential of urban heat island mitigation and the enhancement of the resilience of cities to extreme weather events. 
 
+However the effectiveness of urban green depends on the structure of the urban canopy structure. Tree registries such as the [Baumkataster Würzburg](https://opendata.wuerzburg.de/explore/assets/baumkataster_stadt_wuerzburg/) provide an indication of the amount and distribution of trees within the city. Nevertheless, they have a major methodological weakness because only trees on public land are included. Trees located on private land, such as in gardens or allotments, are not included, which results in a significant discrepancy from the actual number of trees. 
 
 ## Data 
 The project used airbone LiDAR data from the Bayerische Vermessungsverwaltung. The data is freely available and can be downloaded at the [Bayerische Vermessungsverwaltung](https://geodaten.bayern.de/opengeodata/OpenDataDetail.html?pn=laserdaten). The data is is downloaded in tiles with a resolution of 1x1km. The tiles covering the areas studies were downloaded accordingly and had previously been cropped in QGIS using the Point Cloud data management tool: Clip. 
@@ -41,7 +43,9 @@ plot(clipped)
 print(clipped)
 
 ```
-#### Adjust the Region of Interest (ROI)
+<img width="432" height="521" alt="image" src="https://github.com/user-attachments/assets/0d500277-d254-4560-9b98-3f0d095f54cd" />
+
+#### Look at the classification 
 
 
 ```R
