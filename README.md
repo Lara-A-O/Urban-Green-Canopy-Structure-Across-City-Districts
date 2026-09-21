@@ -6,6 +6,8 @@ Urban Green Spaces are key elements of sustainable urban development. Urban gree
 
 However the effectiveness of urban green depends on the structure of the urban canopy structure. Tree registries such as the [Baumkataster Würzburg](https://opendata.wuerzburg.de/explore/assets/baumkataster_stadt_wuerzburg/) provide an indication of the amount and distribution of trees within the city. Nevertheless, they have a major methodological weakness because only trees on public land are included. Trees located on private land, such as in gardens or allotments, are not included, which results in a significant discrepancy from the actual number of trees. 
 
+In the following study the Urban Green Canopy Structure across the three city districts: Altstadt, Sanderau and Lindleinsmühle of Würzburg are being analyzed
+
 ## Data 
 The project used airbone LiDAR data from the Bayerische Vermessungsverwaltung. The data is freely available and can be downloaded at the [Bayerische Vermessungsverwaltung](https://geodaten.bayern.de/opengeodata/OpenDataDetail.html?pn=laserdaten). The data is is downloaded in tiles with a resolution of 1x1km. The tiles covering the areas studies were downloaded accordingly and had previously been cropped in QGIS using the Point Cloud data management tool: Clip. 
 
