@@ -26,6 +26,8 @@ library(viridis)
 
 To start with the analyis the .laz files have to be clipped accordingly to the city districts being analyzed. Herefore the boundaries of the city districs as well as the .laz files are needed. The boundaries have been previously extracted using an OSM query in QGIS. The boundaries are available as a Geopackage. Since the city districts are consisting of several LAS files the LAS catalog is used to extract the region of interest without invalidity or edge artifacts between the tiles. 
 
+The code was executed equally for all districts (The following code block shows an example for Lindleinsmühle).
+
 ```R
 #Import the city districts 
 boundary <- sf::st_read("C:/Users/LaraO/EAGLE_Master/2_Semester/LiDAR-Abgabe/AOIs/Boundary_Lindleinsmuehle.gpkg", quiet = TRUE)
@@ -43,16 +45,19 @@ plot(clipped)
 print(clipped)
 
 ```
-<img width="432" height="521" alt="image" src="https://github.com/user-attachments/assets/0d500277-d254-4560-9b98-3f0d095f54cd" />
+
+<img width="3884" height="1676" alt="Clipped to city districts" src="https://github.com/user-attachments/assets/74de9d09-11dd-471e-8061-586fdec23528" />
+
 
 #### Look at the classification 
-
+The LiDAR data are preclassified. The description can be found at the [Landesamt für Digitalisierung, Breitband und Vermessung](https://www.ldbv.bayern.de/mam/ldbv/dateien/laserdaten_punktklassenbeschreibung.pdf). Relevant for this project are the classes 6 -Building Point and 20 - Object Point (e.g. vegetation).
 
 ```R
 #Tabulate Classification 
 table(clipped$Classification)
 plot(clipped, color="Classification")
 ```
+
 ### Height Normalization 
 
 In the first step of the analysis the elevations of the point clouds have to be transformed from absolute elevations above sea level to heights relative to the ground. The Height normalization is archieved with the Triangular irregular network (tin()) algorithm.
@@ -126,6 +131,9 @@ plot(
 )
 
 ```
+<img width="3878" height="1557" alt="Canopy Height Model" src="https://github.com/user-attachments/assets/f8af1451-81ad-4c95-b977-e1cdf9761749" />
+
+
 
 ### Individual Tree Detection 
 
@@ -199,6 +207,9 @@ r <-terra::rasterize(x=ttops, y=r, "treeID", fun ='count')
 plot (r, col =viridis(20))
 
 ```
+
+<img width="1851" height="832" alt="image" src="https://github.com/user-attachments/assets/f1e4be6f-dcc9-4227-956a-3e585ba39296" />
+
 
 ### Crown metrics and explorative diagrams 
 ```R
