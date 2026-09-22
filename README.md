@@ -1,5 +1,5 @@
 # Urban Green Canopy Structure Across the City Districts of Würzburg
-Final Assignement for the course Novel Image Analysis Methods/ LIDAR Remote sensing of the M.Sc. Applied Earth Observation and Geoanalysis(Matr.3248301)
+Final Assignement for the course Novel Image Analysis Methods/ LIDAR Remote sensing of the M.Sc. Applied Earth Observation and Geoanalysis (Matr.3248301) by Dr. Julia Rieder.
 
 ## Introduction 
 Urban Green Spaces are key elements of sustainable urban development. Urban green spaces offer benefits in various areas, e.g. ecological benefits in the form of cooling and air purification, health-related benefits such as improved mental health, and economic benefits, for example through higher property values; at the same time, they often serve as meeting places (Zhang/Quian 2024). Urban Green Spaces are also especially important in terms of adapting to the effects of climate change because of the potential of urban heat island mitigation and the enhancement of the resilience of cities to extreme weather events. 
@@ -8,7 +8,7 @@ However the effectiveness of urban green depends on the structure of the urban c
 
 In the following study the Urban Green Canopy Structure across the three city districts: Altstadt, Sanderau and Lindleinsmühle of Würzburg are being analyzed. 
 
-The Sanderau (1st), the Altstadt (2nd) and Lindleinsmühle (3rd) are the most populous districts of the city of Würzburg (WürzburgWiki). However, the districts differ primarily in terms of their size and structure.
+The Sanderau (1st), the Altstadt (2nd) and Lindleinsmühle (3rd) are the most populous districts of the city of Würzburg. However, the districts differ primarily in terms of their size and structure.
 The Old Town is the oldest district of Würzburg, but it was largely destroyed during the Second World War and quickly rebuilt. The Old Town is characterised primarily by commercial activity, as it is home to the city’s main shopping streets. However, the Old Town area also includes the River Main, the Ringpark and the Hofgarten, as well as the Mainviertel on the left bank of the Main, which also includes the fortress. 
 The Sanderau covers an area of ca. 1.62 km². As the most populous district, it is characterised primarily by its role as a residential area. In the northern part, the town is characterised primarily by the ‘Gründerzeit’ architecture of the 19th century, whilst in the south, post-war buildings dominate.
 The Lindleinsmühle district is the smallest district in Würzburg (ca. 0.94 km²) and was developed in the 1960s as a result of rapid population growth and to compensate for the destroyed city centre. Consequently, the district is primarily characterised by blocks of flats and high-rise buildings, although areas with detached and terraced houses have also been developed (Würzburg Wiki). 
@@ -147,7 +147,7 @@ plot(
 
 ### Individual Tree Detection (ITD) 
 
-The ITD is done using a Local Maximum Filter with variable windows size
+The ITD is done using a Local Maximum Filter with variable windows size to adapt to the variant sizes of the trees.
 ```R
 f <- function(x) {x * 0.2 + 5}
 heights <- seq(0,30,5)
@@ -172,6 +172,8 @@ plot(veg_las_segmented, color ="treeID")
  ```
 ### Crown Area 
 
+The crown metrics such as crown area and radius are calculated from concave tree crown polygons 
+
 ```R
 # Crown Metrics and Filtering 
 
@@ -195,13 +197,15 @@ crowns_sf$crown_radius <- sqrt(crowns_sf$crown_area / pi)
 summary(crowns_sf$crown_area)
 summary(crowns_sf$crown_radius)
  
-# Filter: Every tree with a crown radius below 1m are being removed 
+# Filter: Every tree with a crown radius below 1m are being removed to eliminate artifacts that got falsely  segmented
+
 crowns_filtered <- crowns_sf[crowns_sf$crown_radius >= 1.0, ]
 
 ```
 
 
 ### Tree Count & Density Calculation 
+
 
 ```R
 n_trees <- nrow(crowns_filtered)
@@ -227,6 +231,8 @@ print(paste("Tree density:", round(tree_density, 1), "Trees / ha"))
 
 
 ### Height data 
+To make precise statements about the vertical structure of the tree canopy, a statistical summary of the (filtered) tree heights was calculated. 
+
 
 ```R
 tt_height <- ttops_filtered$Z
@@ -247,8 +253,10 @@ print(height_stats)
 
 ### Creation of a Explorative Diagrams
 
+For a better understanding of the structural characteristics the urban trees, explorative diagrams were generated including a histogram of the crown radius, the tree heights and a scatterplot of the relationship between tree heights and crown radius was calculated. 
+
 ```R
-# 1. Calculation of crown area (m²) und and crown radius (m) 
+Calculation of crown area (m²) und and crown radius (m) 
 crowns_sf$crown_area <- as.numeric(st_area(crowns_sf))
 crowns_sf$crown_radius <- sqrt(crowns_sf$crown_area / pi)
  
