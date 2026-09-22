@@ -6,7 +6,15 @@ Urban Green Spaces are key elements of sustainable urban development. Urban gree
 
 However the effectiveness of urban green depends on the structure of the urban canopy structure. Tree registries such as the [Baumkataster Würzburg](https://opendata.wuerzburg.de/explore/assets/baumkataster_stadt_wuerzburg/) provide an indication of the amount and distribution of trees within the city. Nevertheless, they have a major methodological weakness because only trees on public land are included. Trees located on private land, such as in gardens or allotments, are not included, which results in a significant discrepancy from the actual number of trees. 
 
-In the following study the Urban Green Canopy Structure across the three city districts: Altstadt, Sanderau and Lindleinsmühle of Würzburg are being analyzed
+In the following study the Urban Green Canopy Structure across the three city districts: Altstadt, Sanderau and Lindleinsmühle of Würzburg are being analyzed. 
+
+The Sanderau (1st), the Altstadt (2nd) and Lindleinsmühle (3rd) are the most populous districts of the city of Würzburg (WürzburgWiki). However, the districts differ primarily in terms of their size and structure.
+The Old Town is the oldest district of Würzburg, but it was largely destroyed during the Second World War and quickly rebuilt. The Old Town is characterised primarily by commercial activity, as it is home to the city’s main shopping streets. However, the Old Town area also includes the River Main, the Ringpark and the Hofgarten, as well as the Mainviertel on the left bank of the Main, which also includes the fortress. 
+The Sanderau covers an area of ca. 1.62 km². As the most populous district, it is characterised primarily by its role as a residential area. In the northern part, the town is characterised primarily by the ‘Gründerzeit’ architecture of the 19th century, whilst in the south, post-war buildings dominate.
+The Lindleinsmühle district is the smallest district in Würzburg (ca. 0.94 km²) and was developed in the 1960s as a result of rapid population growth and to compensate for the destroyed city centre. Consequently, the district is primarily characterised by blocks of flats and high-rise buildings, although areas with detached and terraced houses have also been developed (Würzburg Wiki). 
+
+Given the varying architectural styles across the districts, a difference in urban green space is to be expected. To which extent there is a difference is being analyzed in this study using airborne LiDAR data.
+
 
 ## Data 
 The project used airbone LiDAR data from the Bayerische Vermessungsverwaltung. The data is freely available and can be downloaded at the [Bayerische Vermessungsverwaltung](https://geodaten.bayern.de/opengeodata/OpenDataDetail.html?pn=laserdaten). The data is is downloaded in tiles with a resolution of 1x1km. The tiles covering the areas studies were downloaded accordingly and had previously been cropped in QGIS using the Point Cloud data management tool: Clip. 
@@ -282,4 +290,5 @@ plot(crowns_filtered$crown_radius ~ crowns_filtered$max_z,
 - Roussel et al. (2026): The lidR package: A guide to the lidR package (https://r-lidar.github.io/lidRbook/)
 
 ### Literature 
-- Zhang/Qian (2024): A comprehensive review of the environmental benefits of urban green spaces (https://doi.org/10.1016/j.envres.2024.118837 )
+- Würzburgwiki: Verwaltungsgliederunh der Stadt Würzburg (https://wuerzburgwiki.de/wiki/Verwaltungsgliederung_der_Stadt_W%C3%BCrzburg)
+-  Zhang/Qian (2024): A comprehensive review of the environmental benefits of urban green spaces (https://doi.org/10.1016/j.envres.2024.118837 )
