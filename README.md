@@ -291,7 +291,8 @@ plot(crowns_filtered$crown_radius ~ crowns_filtered$max_z,
 <img width="1920" height="1080" alt="1" src="https://github.com/user-attachments/assets/bd6cb860-e63a-4ee9-91a8-5504df08c627" />
 
 
-<img width="4093" height="1030" alt="Bild1" src="https://github.com/user-attachments/assets/c2081804-b57e-4f16-bb3f-b185b2135a2e" />
+<img width="1858" height="465" alt="image" src="https://github.com/user-attachments/assets/43a8a8f5-8b54-42c0-989d-5afd0b67d0d4" />
+
 
 
 
