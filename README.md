@@ -288,6 +288,9 @@ plot(crowns_filtered$crown_radius ~ crowns_filtered$max_z,
 
 ## Results
 
+<img width="1920" height="1080" alt="1" src="https://github.com/user-attachments/assets/bd6cb860-e63a-4ee9-91a8-5504df08c627" />
+
+
 <img width="1853" height="680" alt="image" src="https://github.com/user-attachments/assets/ed4a7671-d562-4117-845e-d3862354d9ae" />
 
 
